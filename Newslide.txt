@@ -1,0 +1,63 @@
+val imageList = arrayListof(
+ImageItem(
+UUID.randomUUID().toString(),
+"https://fastly.picsum.photos/id/866/500/500.jpg? hmac=FOptChXpmOmfR5SpiL2pp74Yadf1T_bRhBF1wJZa9hg"
+),
+ImageItem(
+UUID.randomUUID().toString(),
+"https://fastly.picsum.photos/id/270/500/500.jpg?
+hmac-MK7XNrBrZ73QsthvGaAkiNoT165ZDlUhEO-6fnd-ZnY"
+),
+ImageItem(
+UUID.randomUUID().toString(),
+"https://fastly.picsum.photos/id/320/500/500.jpg?hmac= 21E7TIF9kIqQOHrIUPOJX2WP1CJewQIZBEMLIRrm74s" ),
+ImageItem(
+UUID.randomUUID().toString(),
+"https://fastly.picsum.photos/id/798/500/500.jpg?
+hmac=Bmzk6g3m8sUiEVHfJWBscr2DUg8Vd2QhN7igHBXLLfo"
+),
+
+
+
+MAINACTIVITY:
+
+package com.example.newslide
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import androidx.recyclerview.widget.RecyclerView
+import com.example.newslide.adapters.ImageAdapter
+import com.example.newslide.models.ImageItem
+import java.net.URL
+import java.util.UUID
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val image1 = findViewById<RecyclerView>(R.id.image1)
+
+        val imageList = arrayListOf(
+            ImageItem(
+                UUID.randomUUID().toString(),
+                "https://fastly.picsum.photos/id/866/500/500.jpg?hmac=FOptChXpmOmfR5SpiL2pp74Yadf1T_bRhBF1wJZa9hg" ),
+            ImageItem(
+                UUID.randomUUID().toString(),
+                "https://fastly.picsum.photos/id/270/500/500.jpg? hmac-MK7XNrBrZ73QsthvGaAkiNoT165ZDlUhEO-6fnd-ZnY"
+            ),
+            ImageItem(
+                UUID.randomUUID().toString(),
+                "https://fastly.picsum.photos/id/320/500/500.jpg?hmac= 21E7TIF9kIqQOHrIUPOJX2WP1CJewQIZBEMLIRrm74s" ),
+            ImageItem(
+                UUID.randomUUID().toString(),
+                "https://fastly.picsum.photos/id/798/500/500.jpg? hmac=Bmzk6g3m8sUiEVHfJWBscr2DUg8Vd2QhN7igHBXLLfo"
+            )
+        )
+
+        val imageAdapter = ImageAdapter()
+        image1.adapter= imageAdapter
+        imageAdapter.submitList(imageList)
+
+    }
+}
